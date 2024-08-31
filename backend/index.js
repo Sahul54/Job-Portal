@@ -5,23 +5,23 @@ import cors from "cors";
 import dotenv from 'dotenv';
 import { connect } from "mongoose";
 import connectDB from "./utils/db.js";
+import userRoute from "./routes/user.js"
 dotenv.config({});
 
 const app = express();
 
 // get request
-app.get("/", (req,res) => {
-    return res.status(200).json({
-        message: "Mai Backend mai aa chuka hu",
-        success: true
-    })
-})
+// app.get("/", (req,res) => {
+//     return res.status(200).json({
+//         message: "Mai Backend mai aa chuka hu",
+//         success: true
+//     })
+// })
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
 
 const corsOptions = {
     origin: 'http://localhost:5173', // Corrected URL
@@ -30,7 +30,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// mongodb connect
+// api's
+app.use("/api/v1/user", userRoute);
 
 const PORT = process.env.PORT || 8000;
 
