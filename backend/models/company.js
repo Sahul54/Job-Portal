@@ -11,18 +11,17 @@ const companySchema = new mongoose.Schema({
     website: {
         type: String
     },
-    location:{
+    location: {
         type: String,
-        // required: true
     },
-    logo:{
-        type: string // Url
+    logo: {
+        type: String, // URL for the logo
     },
-    userId:{
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     }
-}, {timestamps: true});
+}, { timestamps: true });
 
-export  const Company = mongoose.model("Company", companySchema);
+export const Company = mongoose.model("Company", companySchema);
