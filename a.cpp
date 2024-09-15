@@ -13,4 +13,10 @@ if(500 <'4'){
 else{
     cout<<"sfd";
 }
+
+while ()
+{
+    /* code */
+}
+
 }
